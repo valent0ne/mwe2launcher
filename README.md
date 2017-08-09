@@ -1,4 +1,4 @@
-## AcceleoStandalone-CLI
+## mwe2launcher
 
 This is a small CLI .jar that allows you to run .mwe2 workflow files.
 All the paths are absolute.
