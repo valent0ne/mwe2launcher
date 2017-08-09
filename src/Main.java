@@ -6,6 +6,11 @@ import org.slf4j.LoggerFactory;
 
 import org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
+
+
 public class Main {
 
     //logger
@@ -17,15 +22,14 @@ public class Main {
 
     //CLI params declaration
 
-    //path al al file mwe2
-    @Parameter(names = {"--mwe2", "-m"}, required = true, description = "absolute path to .mwe2 file")
-    private static String pathToMwe2;
 
-    //path al al file mwe2
+    //path alla root del progetto
     @Parameter(names = {"--project", "-p"}, required = true, description = "absolute path to project root")
     private static String pathToPrj;
 
-
+    //nome del file .mwe2
+    @Parameter(names = {"--mwe2", "-m"}, required = true, description = "name of .mwe2 file")
+    private static String mwe2FileName;
 
     public static void main(String[] args) {
         Main main = new Main();
@@ -44,10 +48,10 @@ public class Main {
             System.exit(1);
         }
 
-
-        if(pathToMwe2.length()<5 || !(pathToMwe2.substring(pathToMwe2.length()-5).equals(".mwe2"))){
-            pathToMwe2 = pathToMwe2.concat(".mwe2");
+        if(mwe2FileName.length()<5 || !(mwe2FileName.substring(mwe2FileName.length()-5).equals(".mwe2"))){
+            mwe2FileName = mwe2FileName.concat(".mwe2");
         }
+
 
         main.run();
 
@@ -59,7 +63,14 @@ public class Main {
         separator();
         LOGGER.info("[STARTING PROCESS]{}", LINE_SEPARATOR);
         try{
-            LOGGER.info("running {}...", pathToMwe2);
+            LOGGER.info("searching for {}...", mwe2FileName);
+
+            String pathToMwe2 = searchFile(new File(pathToPrj), mwe2FileName);
+            if(pathToMwe2 == null){
+                throw new FileNotFoundException(mwe2FileName+" not found");
+            }
+
+            LOGGER.info("file found, running workflow...");
 
             // lancio workflow mwe2
             Mwe2Launcher.main(new String[]{pathToMwe2, "-p", "rootPath="+pathToPrj});
@@ -74,6 +85,23 @@ public class Main {
         LOGGER.info("[PROCESS COMPLETED]{}", LINE_SEPARATOR);
     }
 
+    static String searchFile(File file, String search) {
+        if (file.isDirectory()) {
+            File[] arr = file.listFiles();
+            assert arr != null;
+            for (File f : arr) {
+                String found = searchFile(f, search);
+                if (found != null)
+                    return found;
+            }
+        } else {
+            if (file.getName().equals(search)) {
+                return file.getAbsolutePath();
+            }
+        }
+        return null;
+    }
+    
 
     private void separator(){ System.out.println(" "); }
 }
