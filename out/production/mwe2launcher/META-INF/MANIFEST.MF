@@ -1,3 +1,26 @@
 Manifest-Version: 1.0
+Class-Path: org.apache.commons.cli_1.2.0.v201404270220.jar com.google.
+ inject_3.0.0.v201312141243.jar org.eclipse.xtext.util_2.12.0.v2017051
+ 8-0959.jar org.eclipse.emf.common_2.13.0.v20170609-0707.jar org.apach
+ e.commons.logging_1.1.1.v201101211721.jar org.eclipse.emf.mwe.core_1.
+ 3.21.201705291011.jar org.eclipse.xtext.xbase_2.12.0.v20170519-0752.j
+ ar org.eclipse.xtend.lib_2.12.0.v20170518-0757.jar jcommander-1.72.ja
+ r com.ibm.icu_58.2.0.v20170418-1837.jar com.google.guava_21.0.0.v2017
+ 0206-1425.jar org.eclipse.xtext.common.types_2.12.0.v20170519-0752.ja
+ r org.eclipse.emf.codegen_2.12.0.v20170609-0928.jar com.google.inject
+ .multibindings_3.0.0.v201402270930.jar org.eclipse.xtext.xtext.genera
+ tor_2.12.0.v20170518-0959.jar org.eclipse.emf.mwe.utils_1.3.21.201705
+ 291011.jar org.eclipse.emf.ecore.xmi_2.13.0.v20170609-0707.jar org.ap
+ ache.log4j_1.2.15.v201012070815.jar org.eclipse.emf.ecore_2.13.0.v201
+ 70609-0707.jar org.eclipse.emf.mwe2.lib_2.9.1.201705291011.jar org.ob
+ jectweb.asm_5.2.0.v20170126-0011.jar org.eclipse.emf.codegen.ecore_2.
+ 13.0.v20170609-0928.jar slf4j-api-1.7.25.jar org.eclipse.emf.mwe2.lau
+ nch_2.9.1.201705291011.jar javax.inject_1.0.0.v20091030.jar org.eclip
+ se.equinox.common_3.9.0.v20170207-1454.jar org.eclipse.emf.mwe2.langu
+ age_2.9.1.201705291011.jar org.eclipse.xtext.xbase.lib_2.12.0.v201705
+ 18-0757.jar slf4j-simple-1.7.25.jar org.eclipse.xtend.lib.macro_2.12.
+ 0.v20170518-0757.jar org.antlr.runtime_3.2.0.v201101311130.jar org.ec
+ lipse.xtext_2.12.0.v20170518-0959.jar org.eclipse.emf.mwe2.runtime_2.
+ 9.1.201705291011.jar
 Main-Class: Main
 
